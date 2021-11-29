@@ -1,0 +1,24 @@
+{% extends "template.html" %}
+{% block conteudo %}
+<link href="{{ url_for('static', filename='bot.css') }}" rel="stylesheet" id="bootstrap-css">
+<h2 style="text-align: center; color: rgb(255, 255, 255);">TELA DE LOGIN</h2>
+<div class="card card-container">
+    <img id="profile-img" class="profile-img-card" src="{{ url_for('static', filename='avatar.png') }}" />
+    <p id="profile-name" class="profile-name-card"></p>
+    <form class="form-signin" method="POST" action="{{ url_for('autenticar') }}">
+        <span id="reauth-email" class="reauth-email"></span>
+        <input type="hidden" name="proxima" value="{{ proxima or url_for('index')}}">
+        <input class="form-control" type="text" name="usuario" placeholder="Usuario" required>
+        <input class="form-control" type="password" name="senha" placeholder="Senha" required>
+        
+        <input type="checkbox" name="LembreDeMim" value="True"> Lembre-se de mim
+        <span id="reauth-email" class="reauth-email"></span>
+        <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Entrar</button>
+    </form><!-- /form -->
+    <a href="#" class="forgot-password">
+        Esqueceu a senha?
+    </a>
+</div>
+{% endblock %}   
+
+

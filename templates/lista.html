@@ -1,0 +1,45 @@
+{% extends "template.html" %}
+{% block conteudo %}
+        {% block content %}
+            {% if login == False %}
+            <a class="btn btn-primary" name="CADASTRAR"
+            href="{{ url_for('cadastrarUser', proxima = '/') }}">CADASTRAR</a>
+
+            <a style="text-align: right; float: right;" class="btn btn-primary" name="LOGIN-BUTTON"
+            href="{{ url_for('login', proxima = '/') }}">FAZER LOGIN</a>
+            {% else %}
+            <a class="btn btn-primary btn-danger" 
+            href="{{ url_for('logout') }}">LOGOUT</a>
+            <label style="text-align: right; float: right;" name="LOGIN-BUTTON">
+                Olá, {{ login }}!
+              </label>
+            {% endif %}
+        {% endblock content %}
+        <a class="btn btn-primary" 
+        href="{{ url_for('novo') }}">NOVO JOGO</a>
+        <table class="table table-striped table-responsive table-bordered">
+            <thead class="thead-default">
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Categoria</th>
+                    <th>Console</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for jogo in jogos %}
+                <tr>
+                    <td>{{ jogo.id}}</td>
+                    <td>{{ jogo.nome }}</td>
+                    <td>{{ jogo.categoria }}</td>
+                    <td>{{ jogo.console }}</td>
+                    <td>
+                        <a href="{{ url_for('editar', id=jogo.id) }}">EDITAR</a>
+                        <a href="{{ url_for('deletar', id=jogo.id) }}">DELETAR</a>
+                    </td>
+                </tr>
+            {% endfor %}   
+            </tbody>
+        </table>
+{% endblock %}
