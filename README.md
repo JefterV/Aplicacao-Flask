@@ -2,7 +2,7 @@
  
 <h1 align="center" >
 <br>
-  <img src="./static/TelaLogin.JPG" alt="Login Tela" width="600" >
+  <img src="./static/TelaHome.JPG" alt="Login Tela" width="600" >
 <br>
 </h1>
 
